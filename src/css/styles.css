@@ -69,12 +69,17 @@ body {
   border: none;
   cursor: pointer;
 }
-.GOIT-Logo {
+.goit-logo {
   position: absolute;
   top: 32px;
   left: 0px;
 }
-.Facts-title {
+.facts {
+  padding-top: 48px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+.facts-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 48px;
@@ -83,15 +88,11 @@ body {
   margin-bottom: 32px;
   margin-top: 0px;
 }
-.Facts {
-  padding-top: 48px;
-  padding-bottom: 100px;
-  text-align: center;
-}
-.Facts-gerb {
+
+.facts-gerb {
   margin-bottom: 24px;
 }
-.Facts-descr {
+.facts-descr {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -103,10 +104,10 @@ body {
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.Facts-item {
+.facts-item {
   width: calc((100% / 3) - (24px * 2) / 3);
 }
-.Facts-item-title {
+.facts-item-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 24px;
@@ -116,7 +117,7 @@ body {
   margin-top: 0px;
   margin-bottom: 32px;
 }
-.Facts-item-descr {
+.facts-item-descr {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 16px;
