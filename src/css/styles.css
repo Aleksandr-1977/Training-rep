@@ -1,3 +1,4 @@
+/* @import 'simplelightbox/dist/simple-lightbox.min.css'; */
 h1,
 h2,
 h3,
@@ -65,19 +66,22 @@ img {
   margin-top: 20px;
 }
 .card-product-mini {
+}
+.card-product-list {
   display: flex;
   flex-direction: column;
   gap: 24px;
   margin-top: 30px;
   margin-right: 24px;
   margin-left: 20px;
-  border: 3px solid #1a75ff;
-  border-radius: 8px;
+
   width: 80px;
   height: 104px;
+  border: none;
 }
-.mini1 {
-  outline: none;
+
+.mini:hover {
+  border: 3px solid #1a75ff;
 }
 .card-product {
   border-radius: 8px;
@@ -143,15 +147,29 @@ img {
   color: #000;
   margin-bottom: 20px;
 }
-.select {
+.select-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  /* height: 48px; */
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 64px;
+}
+.is-active {
+  padding: 16px 0;
+
+  width: 48px;
+  height: 48px;
+  background: #000;
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
   text-align: center;
-  color: #000;
-  margin-bottom: 64px;
-  border-radius: 4px;
-  outline: none;
+  color: #fff;
 }
 .btn-submit {
   font-weight: 700;
@@ -164,4 +182,8 @@ img {
   height: 55px;
   background: #1a75ff;
   outline: none;
+}
+.sl-wrapper {
+  width: 480px;
+  height: 640px;
 }
