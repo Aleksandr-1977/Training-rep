@@ -45,3 +45,12 @@ async function addProduct(id, name, price, category, stock) {
   console.log('Product added!');
 }
 addProduct(4, 'Keyboard', 50, 'Electronics', 20);
+
+// async function getDriveImage() {
+//   const fileId = "1A1aV7GhHsubzQn1skf-776Ap_AHposKU";
+//   const apiKey = "AIzaSyD6kbBYSkb2JB5f4_lrwu82BtxUI-dgkjk";
+//   const response = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`);
+//   if (response.ok) document.getElementById("driveImage").src = response.url;
+//   else console.error("Ошибка загрузки", response.statusText);
+// }
+// getDriveImage();
