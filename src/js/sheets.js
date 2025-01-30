@@ -46,11 +46,18 @@ async function addProduct(id, name, price, category, stock) {
 }
 addProduct(4, 'Keyboard', 50, 'Electronics', 20);
 
-// async function getDriveImage() {
-//   const fileId = "1A1aV7GhHsubzQn1skf-776Ap_AHposKU";
-//   const apiKey = "AIzaSyD6kbBYSkb2JB5f4_lrwu82BtxUI-dgkjk";
-//   const response = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`);
-//   if (response.ok) document.getElementById("driveImage").src = response.url;
-//   else console.error("Ошибка загрузки", response.statusText);
+// async function getImgurImage() {
+//   const imgurUrl = 'https://i.imgur.com/SjxJdyt.jpg'; // Прямая ссылка на изображение
+
+//   try {
+//     const response = await fetch(imgurUrl);
+//     if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
+
+//     const blob = await response.blob();
+//     document.getElementById('imgurImage').src = URL.createObjectURL(blob);
+//   } catch (error) {
+//     console.error('Ошибка загрузки', error.message);
+//   }
 // }
-// getDriveImage();
+
+// getImgurImage();
