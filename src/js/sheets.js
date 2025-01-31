@@ -1,4 +1,3 @@
-import express from 'express';
 import { google } from 'googleapis';
 import dotenv from 'dotenv';
 import { readFile } from 'fs/promises';
