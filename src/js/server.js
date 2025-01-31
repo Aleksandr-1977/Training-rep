@@ -1,8 +1,19 @@
+import express from 'express';
 import { google } from 'googleapis';
 import dotenv from 'dotenv';
 import { readFile } from 'fs/promises';
+import cors from 'cors';
 
 dotenv.config();
+const app = express();
+const PORT = 3000;
+app.use(
+  cors({
+    origin: 'http://localhost:3000', // Разрешаем запросы только с этого домена
+    methods: ['GET', 'POST'], // Разрешаем определенные методы
+    allowedHeaders: ['Content-Type', 'Authorization'], // Разрешаем заголовки
+  })
+);
 
 async function loadCredentials() {
   const credentials = await readFile(
@@ -12,12 +23,21 @@ async function loadCredentials() {
   return JSON.parse(credentials);
 }
 
-const credentials = await loadCredentials(); // Завантаження облікових даних асинхронно
-
+const credentials = await loadCredentials();
 const auth = new google.auth.GoogleAuth({
   credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
+app.get('/getImage', (req, res) => {
+  const fileId = '1A1aV7GhHsubzQn1skF-776Ap_AHposKU';
+  const driveLink = `https://drive.google.com/uc?export=view&id=${fileId}`;
+  res.json({ imageUrl: driveLink });
+});
+app.listen(PORT, () => {
+  console.log(`Сервер запущен на http://localhost:${PORT}`);
+});
+
+export { loadCredentials, auth };
 
 const sheets = google.sheets({ version: 'v4', auth });
 const spreadsheetId = process.env.GOOGLE_SHEETS_ID;
@@ -44,20 +64,4 @@ async function addProduct(id, name, price, category, stock) {
   });
   console.log('Product added!');
 }
-addProduct(4, 'Keyboard', 50, 'Electronics', 20);
-
-// async function getImgurImage() {
-//   const imgurUrl = 'https://i.imgur.com/SjxJdyt.jpg'; // Прямая ссылка на изображение
-
-//   try {
-//     const response = await fetch(imgurUrl);
-//     if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
-
-//     const blob = await response.blob();
-//     document.getElementById('imgurImage').src = URL.createObjectURL(blob);
-//   } catch (error) {
-//     console.error('Ошибка загрузки', error.message);
-//   }
-// }
-
-// getImgurImage();
+addProduct(1, 'Mouse', 20, 'Sony', 10);
