@@ -8,11 +8,6 @@ export default defineConfig(({ command }) => {
   return {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
-      'process.env': {},
-      Buffer: 'buffer.Buffer',
-    },
-    optimizeDeps: {
-      include: ['buffer', 'crypto', 'path', 'fs'],
     },
     root: 'src',
     build: {
